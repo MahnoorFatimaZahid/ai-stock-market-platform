@@ -20,7 +20,18 @@ const Header = async ({ user }: { user?: User }) => {
                     <NavItems initialStocks={initialStocks} />
                 </nav>
 
-                <UserDropdown user={user} initialStocks={initialStocks} />
+              {user ? (
+  <UserDropdown
+    user={user}
+    initialStocks={initialStocks}
+  />
+) : (
+  <Link href="/sign-in">
+    <button className="md:px-8 px-4 py-2 rounded-lg yellow-btn text-black font-medium hover:bg-yellow-300 w-full transition-colors">
+      Sign In
+    </button>
+  </Link>
+)}
             </div>
         </header>
     )
